@@ -1,0 +1,38 @@
+{
+  "placeholder": false,
+  "hero": "ktv-demo",
+  "defaults": {"max_side": 854, "crf": 26},
+  "overview_video": {"bilibili": "", "youtube": ""},
+  "cases": [
+    {
+      "id": "ktv-demo",
+      "category": "karaoke",
+      "title": "Karaoke lyrics with color wipe",
+      "note": "One-line description shown next to the player.",
+      "title_zh": "逐字变色的卡拉OK歌词",
+      "note_zh": "播放器旁显示的一句中文说明（可选，不填则显示英文）。",
+      "start": 12.0,
+      "duration": 8,
+      "src_frame": 300,
+      "rows": [
+        {"label": "Input",       "path": "raw/ktv-demo/input.mp4"},
+        {"label": "Hint",        "path": "raw/ktv-demo/input.mp4", "mask": "raw/ktv-demo/hint_raw.mkv"},
+        {"label": "HintErase",   "path": "raw/ktv-demo/ours.mp4"},
+        {"label": "Hole",        "path": "raw/ktv-demo/hole.mp4"}
+      ]
+    },
+    {
+      "id": "episode-long",
+      "category": "long",
+      "title": "Ten-minute episode, 140 shots",
+      "note": "Full episode processed in one run.",
+      "start": 535.0,
+      "duration": 10,
+      "rows": [
+        {"label": "Input",               "path": "raw/episode/input.mp4"},
+        {"label": "HintErase",           "path": "raw/episode/ours.mp4"},
+        {"label": "Independent windows", "path": "raw/episode/no_propagation.mp4"}
+      ]
+    }
+  ]
+}

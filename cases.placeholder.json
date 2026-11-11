@@ -1,0 +1,304 @@
+{
+  "placeholder": true,
+  "hero": "ktv-wipe",
+  "defaults": {
+    "max_side": 854,
+    "crf": 26
+  },
+  "overview_video": {
+    "bilibili": "",
+    "youtube": ""
+  },
+  "cases": [
+    {
+      "id": "sub-bilingual",
+      "category": "subtitles",
+      "title": "Bilingual subtitles",
+      "note": "Two-line burned-in subtitles over a moving dusk scene.",
+      "title_zh": "双语字幕",
+      "note_zh": "黄昏时分移动画面上的两行硬字幕。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/sub-bilingual/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/sub-bilingual/input.mp4",
+          "mask": "raw_placeholder/sub-bilingual/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/sub-bilingual/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1200
+    },
+    {
+      "id": "sub-multi",
+      "category": "subtitles",
+      "title": "Subtitles plus a live badge",
+      "note": "Two overlays in different regions; one hint covers both.",
+      "title_zh": "字幕加直播角标",
+      "note_zh": "两个叠加层位于不同区域，由同一个提示覆盖。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/sub-multi/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/sub-multi/input.mp4",
+          "mask": "raw_placeholder/sub-multi/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/sub-multi/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1237
+    },
+    {
+      "id": "ktv-wipe",
+      "category": "karaoke",
+      "title": "Karaoke lyrics with color wipe",
+      "note": "Per-character color sweep; the outline changes color mid-line.",
+      "title_zh": "逐字变色的卡拉OK歌词",
+      "note_zh": "歌词逐字扫色，描边在一行中途改变颜色。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/ktv-wipe/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/ktv-wipe/input.mp4",
+          "mask": "raw_placeholder/ktv-wipe/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/ktv-wipe/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1274
+    },
+    {
+      "id": "title-card",
+      "category": "titles",
+      "title": "Fading title card",
+      "note": "Large display type that fades in and out over the shot.",
+      "title_zh": "淡入淡出的标题卡",
+      "note_zh": "大字标题在镜头中淡入又淡出。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/title-card/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/title-card/input.mp4",
+          "mask": "raw_placeholder/title-card/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/title-card/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1311
+    },
+    {
+      "id": "credits-roll",
+      "category": "titles",
+      "title": "Rolling end credits",
+      "note": "Credits scrolling over live footage, tracked by a scroll-aware mask.",
+      "title_zh": "滚动的片尾演职员表",
+      "note_zh": "演职员表在实拍画面上滚动，由跟随滚动的 mask 定位。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/credits-roll/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/credits-roll/input.mp4",
+          "mask": "raw_placeholder/credits-roll/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/credits-roll/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1348
+    },
+    {
+      "id": "logo-corner",
+      "category": "logos",
+      "title": "Corner logo and watermark",
+      "note": "A persistent station logo plus a translucent watermark.",
+      "title_zh": "角落台标与水印",
+      "note_zh": "常驻的台标，外加一个半透明水印。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/logo-corner/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/logo-corner/input.mp4",
+          "mask": "raw_placeholder/logo-corner/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/logo-corner/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1385
+    },
+    {
+      "id": "anime-480",
+      "category": "anime",
+      "title": "480p anime dialogue",
+      "note": "Low-resolution cel-shaded source with outlined dialogue.",
+      "title_zh": "480p 动画对白",
+      "note_zh": "低分辨率赛璐璐动画，对白字幕带描边。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/anime-480/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/anime-480/input.mp4",
+          "mask": "raw_placeholder/anime-480/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/anime-480/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1422
+    },
+    {
+      "id": "long-multishot",
+      "category": "long",
+      "title": "Multi-shot sequence",
+      "note": "Hard cuts every two seconds. Compare against independently processed windows.",
+      "title_zh": "多镜头片段",
+      "note_zh": "每两秒一次硬切。可与各窗口独立处理的结果对比。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/long-multishot/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/long-multishot/input.mp4",
+          "mask": "raw_placeholder/long-multishot/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/long-multishot/ours.mp4"
+        },
+        {
+          "label": "Independent windows",
+          "path": "raw_placeholder/long-multishot/independent_windows.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1459
+    },
+    {
+      "id": "hint-box",
+      "category": "hints",
+      "title": "Loose box hint",
+      "note": "The hint is a rough box. Background inside the box must survive.",
+      "title_zh": "宽松的框作为提示",
+      "note_zh": "提示只是一个粗略的框，框内的背景必须保留。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/hint-box/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/hint-box/input.mp4",
+          "mask": "raw_placeholder/hint-box/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/hint-box/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1496
+    },
+    {
+      "id": "hint-missed",
+      "category": "hints",
+      "title": "Hint misses strokes",
+      "note": "The hint drops the second line. HintErase still removes it.",
+      "title_zh": "提示漏掉笔画",
+      "note_zh": "提示漏掉了第二行字幕，HintErase 仍然把它擦掉。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/hint-missed/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/hint-missed/input.mp4",
+          "mask": "raw_placeholder/hint-missed/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/hint-missed/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1533
+    },
+    {
+      "id": "fail-blur",
+      "category": "failures",
+      "title": "Heavy motion blur",
+      "note": "Fast, blurred text leaves faint residue. A known limitation.",
+      "title_zh": "严重运动模糊",
+      "note_zh": "快速运动、模糊的文字会留下淡淡的残留，这是已知局限。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw_placeholder/fail-blur/input.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "raw_placeholder/fail-blur/input.mp4",
+          "mask": "raw_placeholder/fail-blur/mask.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw_placeholder/fail-blur/ours.mp4"
+        }
+      ],
+      "start": 0,
+      "duration": 6,
+      "src_frame": 1570
+    }
+  ]
+}

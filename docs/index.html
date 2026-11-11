@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HintErase</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="HintErase removes burned-in subtitles, karaoke lyrics, titles, credits and logos from full-length videos, guided by hints that may be wrong.">
+<meta property="og:title" content="HintErase: Hint, Not Hole">
+<meta property="og:description" content="Video overlay removal that treats localization as a hint, not a hole.">
+<meta property="og:image" content="media/og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Loaded without blocking rendering: where Google Fonts is unreachable the page shows system fonts at once instead of waiting for a timeout. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Schibsted+Grotesk:wght@500;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Schibsted+Grotesk:wght@500;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap"></noscript>
+<link rel="stylesheet" href="style.css?v=d14424d5">
+</head>
+<body>
+<!--
+  Bilingual text: the English in this file is the source and the no-JavaScript fallback.
+  Chinese lives in i18n.js under the same key.
+    data-i18n="key"        replaces the text
+    data-i18n-html="key"   replaces inner HTML (for text with <strong>, <code>, <small> ...)
+    data-i18n-attr="attr:key;attr:key"   replaces attributes
+-->
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top">HintErase</a>
+    <nav aria-label="Sections" data-i18n-attr="aria-label:nav.label">
+      <a href="#results" data-i18n="nav.results">Results</a>
+      <a href="#hints" data-i18n="nav.hints">Hints</a>
+      <a href="#delivery" data-i18n="nav.delivery">Delivery</a>
+      <a href="#uhd" data-i18n="nav.uhd">Ultra-HD</a>
+      <a href="#cite" data-i18n="nav.cite">Cite</a>
+    </nav>
+    <button class="lang-toggle" type="button" id="lang-toggle" lang="zh-CN" aria-label="切换到中文">中文</button>
+  </div>
+</header>
+
+<div id="placeholder-banner" class="banner" hidden>
+  <div class="wrap" data-i18n="banner">Preview build. Every clip on this page is a synthetic placeholder and will be replaced with real results.</div>
+</div>
+
+<main id="top">
+  <section class="hero wrap">
+    <div class="hero-text">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Technical report · Video overlay removal</p>
+      <h1 data-i18n="hero.title">Hint, not hole.</h1>
+      <p class="lede" data-i18n="hero.lede">HintErase removes burned-in subtitles, karaoke lyrics, titles, credits and logos from full-length videos. It takes a hint of where the overlay is, and it still works when that hint is wrong.</p>
+      <p class="authors" data-i18n-html="hero.authors"><span class="aff">Malanshan Audio &amp; Video Laboratory</span></p>
+      <div class="links">
+        <a class="btn primary" href="HintErase_report.pdf" target="_blank" rel="noopener" data-i18n-html="hero.report">Technical report <small>PDF</small></a>
+        <a class="btn" href="#overview" data-i18n="hero.overview">Overview video</a>
+        <a class="btn" href="#cite">BibTeX</a>
+      </div>
+    </div>
+    <div class="hero-player" id="hero-player" aria-label="Before and after comparison" data-i18n-attr="aria-label:hero.playerLabel"></div>
+  </section>
+
+  <section class="facts wrap" aria-label="What it handles" data-i18n-attr="aria-label:facts.label">
+    <dl>
+      <div><dt data-i18n="facts.types">Overlay types</dt><dd data-i18n="facts.typesVal">Subtitles, lyrics, titles, credits, logos</dd></div>
+      <div><dt data-i18n="facts.hint">Hint</dt><dd data-i18n="facts.hintVal">Box, pixel mask, or rough guess</dd></div>
+      <div><dt data-i18n="facts.length">Length</dt><dd data-i18n="facts.lengthVal">Full episodes and music videos, multi-shot</dd></div>
+      <div><dt data-i18n="facts.sources">Sources</dt><dd data-i18n="facts.sourcesVal">480p to 1080p sources; Ultra-HD delivery</dd></div>
+    </dl>
+  </section>
+
+  <section id="results" class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="results.eyebrow">Results</p>
+      <h2 data-i18n="results.title">Compare any clip side by side.</h2>
+      <p class="sub" data-i18n="results.sub">Each player shows two views of the same frames. Pick what goes on the left and on the right: the input, the hint we gave, or our result.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Overlay type" data-i18n-attr="aria-label:results.tabsLabel" id="cat-tabs"></div>
+    <p class="cat-blurb" id="cat-blurb"></p>
+    <div class="gallery">
+      <div class="gallery-player" id="gallery-player"></div>
+      <aside class="gallery-side">
+        <h3 id="case-title"></h3>
+        <p id="case-note" class="case-note"></p>
+        <ul class="case-list" id="case-list" aria-label="Clips in this category" data-i18n-attr="aria-label:results.listLabel"></ul>
+      </aside>
+    </div>
+  </section>
+
+  <section id="overview" class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="overview.eyebrow">Overview video</p>
+      <h2 data-i18n="overview.title">Three minutes of full-length results.</h2>
+    </div>
+    <div class="overview is-empty" id="overview-slot">
+      <div class="overview-empty">
+        <p data-i18n="overview.empty">The overview video will be embedded here.</p>
+        <p class="small" data-i18n-html="overview.howto">Set <code>overview_video.bilibili</code> or <code>overview_video.youtube</code> in cases.json.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="hints" class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="hints.eyebrow">Why a hint, not a hole</p>
+      <h2 data-i18n="hints.title">Detectors are wrong in both directions.</h2>
+      <p class="sub" data-i18n="hints.sub">Most erasers take a mask as a hole: everything inside is regenerated, everything outside is copied. A stroke the mask misses stays in the output. Background the mask over-covers gets repainted. HintErase reads the mask as evidence and looks at the whole frame.</p>
+    </div>
+    <div class="why">
+      <figure class="why-card bad">
+        <div class="why-img"><img src="media/why/mask-region.png" alt="Red region masks covering whole lines of a title card" loading="lazy" data-i18n-attr="alt:why.regionAlt"></div>
+        <figcaption>
+          <span class="why-tag" data-i18n="why.regionTag">Common: region mask</span>
+          <h3 data-i18n="why.regionTitle">The hole is too big</h3>
+          <p data-i18n="why.regionText">The mask covers whole lines, including the background between and around the characters. An eraser that treats it as a hole repaints all of it, and clean texture is lost.</p>
+        </figcaption>
+      </figure>
+      <figure class="why-card bad">
+        <div class="why-img"><img src="media/why/mask-char.png" alt="Red character-level masks following each stroke" loading="lazy" data-i18n-attr="alt:why.charAlt"></div>
+        <figcaption>
+          <span class="why-tag" data-i18n="why.charTag">Refined: character mask</span>
+          <h3 data-i18n="why.charTitle">The hole is too small</h3>
+          <p data-i18n="why.charText">The mask follows each stroke. Outlines, glows and compression halos just outside it stay in the output, and any stroke the segmenter misses survives.</p>
+        </figcaption>
+      </figure>
+      <figure class="why-card good">
+        <div class="why-img"><img src="media/why/hint-box.png" alt="The full frame with a red box around the text block and a blue box around the logo" loading="lazy" data-i18n-attr="alt:why.hintAlt"></div>
+        <figcaption>
+          <span class="why-tag" data-i18n="why.hintTag">HintErase: a hint</span>
+          <h3 data-i18n="why.hintTitle">A box is enough</h3>
+          <p data-i18n="why.hintText">One box per text block (red) and per logo (blue), and the model still sees the whole frame with the overlay in place. It removes every stroke, outline and glow, and keeps the background between characters.</p>
+        </figcaption>
+      </figure>
+    </div>
+    <ul class="why-props">
+      <li data-i18n-html="why.complete"><strong>Complete.</strong> Strokes, outlines and glows the hint misses are removed too.</li>
+      <li data-i18n-html="why.faithful"><strong>Faithful.</strong> Background that a loose box happens to cover is kept.</li>
+      <li data-i18n-html="why.selective"><strong>Selective.</strong> Scene text stays, even when a box lands on it.</li>
+    </ul>
+  </section>
+
+  <section id="delivery" class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="deliv.eyebrow">From model to delivery</p>
+      <h2 data-i18n="deliv.title">The model sees a short window; delivery means a whole long video.</h2>
+    </div>
+    <div class="gaps">
+      <div class="gap"><strong data-i18n="deliv.gap1">Short window → long video</strong><span data-i18n="deliv.gap1s">The model handles a few seconds at a time, while a long video has thousands of frames. It has to be split into windows and stitched back without seams.</span></div>
+      <div class="gap"><strong data-i18n="deliv.gap2">One shot → frequent cuts</strong><span data-i18n="deliv.gap2s">A window that crosses a cut lets the shots on either side bleed into each other.</span></div>
+      <div class="gap"><strong data-i18n="deliv.gap3">Exact masks → misses and jitter</strong><span data-i18n="deliv.gap3s">A frame the detector misses keeps its text; a mask that jitters makes the result flicker.</span></div>
+    </div>
+    <p class="gaps-note" data-i18n="deliv.note">These problems hardly show on a few seconds of footage; they surface together only on a complete long video, and if any step below fails, the output is unusable.</p>
+    <ol class="steps">
+        <li class="step">
+          <h3 data-i18n="deliv.input">① Input preprocessing</h3>
+          <p class="step-row"><span class="step-k" data-i18n="deliv.problemLabel">Problem</span><span data-i18n="deliv.inputP">Sources vary: interlacing, compression artifacts, non-square pixels.</span></p>
+          <p class="step-row"><span class="step-k fix" data-i18n="deliv.fixLabel">Solution</span><span data-i18n="deliv.inputS">Detect and deinterlace automatically; crop windows at the source scale and aspect.</span></p>
+        </li>
+        <li class="step">
+          <h3 data-i18n="deliv.shots">② Shot segmentation</h3>
+          <p class="step-row"><span class="step-k" data-i18n="deliv.problemLabel">Problem</span><span data-i18n="deliv.shotsP">Windows that cross a cut mix two shots; fades and flashes create false cuts.</span></p>
+          <p class="step-row"><span class="step-k fix" data-i18n="deliv.fixLabel">Solution</span><span data-i18n="deliv.shotsS">Detect shots and split the work at cuts; merge false cuts across fades and dissolves.</span></p>
+        </li>
+        <li class="step">
+          <h3 data-i18n="deliv.hint">③ Erasure hints</h3>
+          <p class="step-row"><span class="step-k" data-i18n="deliv.problemLabel">Problem</span><span data-i18n="deliv.hintP">Detectors miss frames, boxes jitter, and small marks such as logos get missed.</span></p>
+          <p class="step-row"><span class="step-k fix" data-i18n="deliv.fixLabel">Solution</span><span data-i18n="deliv.hintS">Combine segmentation with localization, and extend hints in time to fill missed frames.</span></p>
+        </li>
+        <li class="step">
+          <h3 data-i18n="deliv.plan">④ Inference planning</h3>
+          <p class="step-row"><span class="step-k" data-i18n="deliv.problemLabel">Problem</span><span data-i18n="deliv.planP">A long video does not fit in GPU memory, and most of its frames carry no overlay at all.</span></p>
+          <p class="step-row"><span class="step-k fix" data-i18n="deliv.fixLabel">Solution</span><span data-i18n="deliv.planS">Process only the stretches that carry overlays, streaming window by window; memory stays fixed regardless of video length.</span></p>
+        </li>
+        <li class="step">
+          <h3 data-i18n="deliv.paste">⑤ Paste-back</h3>
+          <p class="step-row"><span class="step-k" data-i18n="deliv.problemLabel">Problem</span><span data-i18n="deliv.pasteP">Replacing whole frames softens untouched areas; leftover text hides in dark scenes.</span></p>
+          <p class="step-row"><span class="step-k fix" data-i18n="deliv.fixLabel">Solution</span><span data-i18n="deliv.pasteS">Replace only pixels that actually changed, with a threshold that adapts to brightness.</span></p>
+        </li>
+        <li class="step">
+          <h3 data-i18n="deliv.output">⑥ Full-length output</h3>
+          <p class="step-row"><span class="step-k" data-i18n="deliv.problemLabel">Problem</span><span data-i18n="deliv.outputP">Dropped or duplicated frames; audio out of sync.</span></p>
+          <p class="step-row"><span class="step-k fix" data-i18n="deliv.fixLabel">Solution</span><span data-i18n="deliv.outputS">Keep the frame count exactly aligned with the source and mux the original audio back in.</span></p>
+        </li>
+        <li class="step step-wide">
+          <h3 data-i18n="deliv.uhd">⑦ Ultra-HD delivery (optional)</h3>
+          <p class="step-row"><span class="step-k" data-i18n="deliv.problemLabel">Problem</span><span data-i18n="deliv.uhdP">Old footage is low-resolution, while re-releases often require Ultra-HD. Generative upscalers built on large models tend to alter what they enlarge: colors shift, faces and people change, and details are invented.</span></p>
+          <p class="step-row"><span class="step-k fix" data-i18n="deliv.fixLabel">Solution</span><span data-i18n-html="deliv.uhdS">After erasure, our in-house high-fidelity super-resolution model upscales the clean video 4×, keeping the original colors, people and details.</span></p>
+        </li>
+    </ol>
+  </section>
+
+  <section id="uhd" class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="uhd.eyebrow">Ultra-HD delivery</p>
+      <h2 data-i18n="uhd.title">Old footage, erased and delivered in Ultra-HD.</h2>
+      <p class="sub" data-i18n="uhd.sub">Many re-releases start from low-resolution masters. HintErase removes the overlays at the source resolution, then our in-house super-resolution model upscales the clean video 4×. Unlike generative upscalers built on large models, which often shift colors, change faces and invent details, it is built for fidelity: colors, people and details stay true to the original. Sample footage for this stage is not shown here, because the clips feature identifiable people.</p>
+    </div>
+  </section>
+
+    <section id="cite" class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow" data-i18n="cite.eyebrow">Cite</p>
+      <h2>BibTeX</h2>
+    </div>
+    <div class="bib">
+      <pre id="bibtex">@techreport{zhang2026hinterase,
+  title       = {Hint, Not Hole: Localization-Robust Video Overlay Removal},
+  author      = {Zhang, Dongyang and Zhang, Wei and Zou, Renjie and Huang, Zhiwei},
+  institution = {Malanshan Audio \& Video Laboratory},
+  year        = {2026},
+  url         = {https://zdyshine.github.io/HintErase}
+}</pre>
+      <button class="btn copy" type="button" id="copy-bib">Copy</button>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap" data-i18n="footer">All clips are shown with the permission of their rights holders. Please do not download or redistribute them.</div>
+</footer>
+
+<script src="i18n.js?v=e6486128"></script>
+<script src="manifest.js?v=ef6a6443"></script>
+<script src="app.js?v=000d3333"></script>
+</body>
+</html>

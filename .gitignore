@@ -1,0 +1,5 @@
+raw/
+raw_placeholder/
+docs/media/*.key
+__pycache__/
+.DS_Store

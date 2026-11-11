@@ -1,0 +1,232 @@
+{
+  "placeholder": false,
+  "hero": "ktv-wipe",
+  "defaults": {
+    "max_side": 854,
+    "crf": 24
+  },
+  "overview_video": {
+    "bilibili": "",
+    "youtube": ""
+  },
+  "cases": [
+    {
+      "id": "ktv-wipe",
+      "category": "karaoke",
+      "title": "Karaoke lyrics with color wipe",
+      "note": "Two lines of outlined lyrics; each character turns blue as it is sung, over a slow street scene.",
+      "title_zh": "逐字变色的卡拉OK歌词",
+      "note_zh": "两行带描边的歌词，唱到哪个字就变成蓝色，背景是缓慢移动的街景。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw/ktv-wipe/input.mkv"
+        },
+        {
+          "label": "Hint",
+          "path": "raw/ktv-wipe/input.mkv",
+          "mask": "raw/ktv-wipe/hint_mask.mkv"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw/ktv-wipe/hinterase.mkv"
+        }
+      ],
+      "start": 0,
+      "duration": 8.008,
+      "src_frame": 659
+    },
+    {
+      "id": "hint-modes",
+      "category": "hints",
+      "title": "Same clip, four kinds of hint",
+      "note": "Same weights: the mask read as a hole, the mask read as a hint, a hand-placed box, and no hint at all. The box was given as coordinates, so it is not drawn.",
+      "title_zh": "同一段视频，四种提示",
+      "note_zh": "同一套权重：把 mask 当作洞、把 mask 当作提示、手动给定的框、完全不给提示。框以坐标形式给出，画面上没有画出。",
+      "left": "Hole",
+      "right": "HintErase",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw/hint-modes/input.mkv"
+        },
+        {
+          "label": "Hint",
+          "path": "raw/hint-modes/input.mkv",
+          "mask": "raw/hint-modes/hint_mask.mkv"
+        },
+        {
+          "label": "Hole",
+          "path": "raw/hint-modes/hole.mkv"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw/hint-modes/hinterase.mkv"
+        },
+        {
+          "label": "Box hint",
+          "path": "raw/hint-modes/box-hint.mkv"
+        },
+        {
+          "label": "No hint",
+          "path": "raw/hint-modes/no-hint.mkv"
+        }
+      ],
+      "start": 0,
+      "duration": 8.008,
+      "src_frame": 390
+    },
+    {
+      "id": "ktv-long",
+      "category": "long",
+      "title": "A whole music video in one run",
+      "note": "The full five-minute video was processed end to end; this stretch near the end crosses a shot cut.",
+      "title_zh": "整首 MV 一次处理",
+      "note_zh": "整首约 5 分钟的 MV 一次处理完成；这一段接近结尾，中间有一次镜头切换。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw/ktv-long/input.mkv"
+        },
+        {
+          "label": "Hint",
+          "path": "raw/ktv-long/input.mkv",
+          "mask": "raw/ktv-long/hint_mask.mkv"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw/ktv-long/hinterase.mkv"
+        }
+      ],
+      "start": 0,
+      "duration": 8.008,
+      "src_frame": 7073
+    },
+    {
+      "id": "anime-480",
+      "category": "anime",
+      "title": "480p anime dialogue",
+      "note": "Thin gray subtitles over painted forest backgrounds, across a cut from a wide shot to a close-up.",
+      "title_zh": "480p 动画对白",
+      "note_zh": "细小的灰色字幕叠在手绘森林背景上，中间从全景切到特写。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw/anime-480/input.mkv"
+        },
+        {
+          "label": "Hint",
+          "path": "raw/anime-480/input.mkv",
+          "mask": "raw/anime-480/hint_mask.mkv"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw/anime-480/hinterase.mkv"
+        }
+      ],
+      "start": 0,
+      "duration": 8.0,
+      "src_frame": 3587
+    },
+    {
+      "id": "anime-song",
+      "category": "anime",
+      "title": "Theme-song lyrics in animation",
+      "note": "Song lyrics over a moving animated scene from a 720x576 source.",
+      "title_zh": "动画主题曲歌词",
+      "note_zh": "720x576 片源，歌词叠在运动的动画画面上。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw/anime-song/input.mkv"
+        },
+        {
+          "label": "Hint",
+          "path": "raw/anime-song/input.mkv",
+          "mask": "raw/anime-song/hint_mask.mkv"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw/anime-song/hinterase.mkv"
+        }
+      ],
+      "start": 0,
+      "duration": 8.0,
+      "src_frame": 1600
+    },
+    {
+      "id": "credits-roll",
+      "category": "titles",
+      "title": "End credits",
+      "note": "Dense multi-column credits over animation, removed with a mask that follows the credits. This clip ran with the hint read as a hole.",
+      "title_zh": "片尾演职员表",
+      "note_zh": "多列密集的演职员表叠在动画上，用跟随字幕移动的 mask 擦除。这一段使用的是挖洞模式。",
+      "right": "HintErase (hole)",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw/credits-roll/input.mkv"
+        },
+        {
+          "label": "Hint",
+          "path": "raw/credits-roll/input.mkv",
+          "mask": "raw/credits-roll/hint_mask.mkv"
+        },
+        {
+          "label": "HintErase (hole)",
+          "path": "raw/credits-roll/hinterase-hole.mkv"
+        }
+      ],
+      "start": 0,
+      "duration": 8.0,
+      "src_frame": 1875
+    },
+    {
+      "id": "fail-credits",
+      "category": "failures",
+      "title": "Dense credits left in place",
+      "note": "The same end credits with the hint read as a hint: most of the credits survive.",
+      "title_zh": "密集演职员表未被擦除",
+      "note_zh": "同一段片尾，把 mask 当作提示时，大部分演职员表没有被擦掉。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw/fail-credits/input.mkv"
+        },
+        {
+          "label": "Hint",
+          "path": "raw/fail-credits/input.mkv",
+          "mask": "raw/fail-credits/hint_mask.mkv"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw/fail-credits/hinterase.mkv"
+        }
+      ],
+      "start": 0,
+      "duration": 7.84,
+      "src_frame": 100
+    },
+    {
+      "id": "fail-residue",
+      "category": "failures",
+      "title": "Residue on stylized lyrics",
+      "note": "A short lyric line over a flat graphic background leaves visible strokes behind.",
+      "title_zh": "风格化歌词残留",
+      "note_zh": "平涂图形背景上的一行短歌词，擦除后仍留下可见笔画。",
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw/fail-residue/input.mkv"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw/fail-residue/hinterase.mkv"
+        }
+      ],
+      "start": 0,
+      "duration": 1.2,
+      "src_frame": 0
+    }
+  ]
+}

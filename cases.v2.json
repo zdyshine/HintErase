@@ -1,0 +1,160 @@
+{
+  "placeholder": false,
+  "hero": "hero-keke",
+  "defaults": {
+    "max_side": 854,
+    "crf": 24
+  },
+  "overview_video": {
+    "bilibili": "",
+    "youtube": ""
+  },
+  "cases": [
+    {
+      "id": "hero-keke",
+      "category": "karaoke",
+      "gallery": false,
+      "title": "Karaoke lyrics over cherry blossoms",
+      "note": "Per-character color wipes and the translucent channel logo in the corner, removed together.",
+      "title_zh": "樱花风景上的卡拉OK歌词",
+      "note_zh": "逐字变色的歌词，连同右上角的半透明台标一并擦除。",
+      "start": 0,
+      "src_frame": 0,
+      "rows": [
+        {
+          "label": "Input",
+          "path": "raw/keke/input.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "raw/keke/output.mp4"
+        }
+      ]
+    },
+    {
+      "id": "hero-houlai",
+      "category": "karaoke",
+      "gallery": false,
+      "title": "Karaoke music video",
+      "note": "Lyrics with per-character color wipes and countdown dots.",
+      "title_zh": "卡拉OK MV",
+      "note_zh": "逐字变色的歌词，以及开唱前的倒数圆点。",
+      "start": 0,
+      "src_frame": 0,
+      "rows": [
+        {
+          "label": "Input",
+          "path": "../../测试样例/Hinterase_pub/001-右上总览视频/后老-输入-18s.mp4",
+          "offset": 1
+        },
+        {
+          "label": "Hint",
+          "path": "../../测试样例/Hinterase_pub/001-右上总览视频/后来-提示-18s.mp4",
+          "offset": 1
+        },
+        {
+          "label": "HintErase",
+          "path": "../../测试样例/Hinterase_pub/001-右上总览视频/后来-擦除结果-18s.mp4"
+        }
+      ]
+    },
+    {
+      "id": "ktv-lyrics",
+      "category": "karaoke",
+      "title": "Karaoke lyrics over a busy street",
+      "note": "Two lines of lyrics with countdown dots, over a crowded street of old film posters and passers-by, across a cut.",
+      "title_zh": "热闹街景上的卡拉OK歌词",
+      "note_zh": "两行歌词和开唱前的倒数圆点，背景是贴满老电影海报、行人往来的街道，中间有一次镜头切换。",
+      "start": 0,
+      "src_frame": 0,
+      "rows": [
+        {
+          "label": "Input",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/KTV-字幕/如愿-输入.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/KTV-字幕/如愿-提示.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/KTV-字幕/如愿-擦除输出.mp4"
+        }
+      ]
+    },
+    {
+      "id": "ktv-title",
+      "category": "titles",
+      "title": "Music video title card",
+      "note": "Song title, credits and a record-label logo at the start of a music video, removed together.",
+      "title_zh": "MV 片头标题卡",
+      "note_zh": "MV 开头的歌名、演职信息和唱片公司标志一起被擦除。",
+      "start": 0,
+      "src_frame": 0,
+      "rows": [
+        {
+          "label": "Input",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/KTV-片头/后来-输入.mp4",
+          "offset": 1
+        },
+        {
+          "label": "Hint",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/KTV-片头/后来-提示.mp4",
+          "offset": 1
+        },
+        {
+          "label": "HintErase",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/KTV-片头/后来-擦除结果.mp4"
+        }
+      ]
+    },
+    {
+      "id": "anime-lyrics",
+      "category": "anime",
+      "title": "Theme-song lyrics in animation",
+      "note": "A lyric line over flying cranes and a misty waterfall.",
+      "title_zh": "动画主题曲歌词",
+      "note_zh": "飞鹤与雾气瀑布画面上的一行歌词。",
+      "start": 0,
+      "src_frame": 0,
+      "rows": [
+        {
+          "label": "Input",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/动漫-字幕/输入.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/动漫-字幕/提示.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/动漫-字幕/字幕擦除结果.mp4"
+        }
+      ]
+    },
+    {
+      "id": "anime-credits",
+      "category": "credits",
+      "title": "Anime end credits",
+      "note": "Credit lines at the bottom of the frame, over a painted village and dancing figures.",
+      "title_zh": "动画片尾演职员表",
+      "note_zh": "画面底部的演职员信息，背景是手绘村落和舞蹈人物。",
+      "start": 0,
+      "src_frame": 0,
+      "rows": [
+        {
+          "label": "Input",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/动漫-片尾/输入.mp4"
+        },
+        {
+          "label": "Hint",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/动漫-片尾/提示.mp4"
+        },
+        {
+          "label": "HintErase",
+          "path": "../../测试样例/Hinterase_pub/002-中间展示/动漫-片尾/擦除结果.mp4"
+        }
+      ]
+    }
+  ]
+}
