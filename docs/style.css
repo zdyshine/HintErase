@@ -274,3 +274,8 @@ h3 { font-size: 1.15rem; font-weight: 700; }
 .ack { color: var(--muted); max-width: 46em; margin-top: 20px; }
 .foot { margin-top: 64px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
 .foot .wrap { padding-block: 24px; }
+
+/* contact line under the BibTeX block */
+.contact { margin-top: 20px; color: inherit; opacity: .8; }
+.contact a { text-decoration: underline; }
+.contact code { font-family: inherit; padding: 1px 6px; border-radius: 4px; background: rgba(127,127,127,.15); }

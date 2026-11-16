@@ -122,6 +122,8 @@
 
 
     "cite.eyebrow": "引用",
+    "cite.contact": "联系方式：<a href=\"mailto:zhangdongyang@mlslabs.com.cn\">zhangdongyang@mlslabs.com.cn</a> · 微信：<code>PixArtAI</code> · <a href=\"https://github.com/zdyshine/HintErase/issues\" target=\"_blank\" rel=\"noopener\">GitHub Issues</a>",
+    "hero.contact": "联系我们",
     "footer": "本页所有视频均已获得版权方授权展示，请勿下载或转载。",
   };
 
